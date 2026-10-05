@@ -1,21 +1,28 @@
-# Báo cáo Day 19 — Flat RAG vs GraphRAG
+## Báo cáo Day 19 — Flat RAG vs GraphRAG
 
-**Họ tên:** Nguyễn Văn Đại  **MSSV:** 2A202602477  **Ngày:** 05/10/2026
+**Họ tên:** Nguyễn Văn Đại  
+**MSSV:** 2A202602477  
+**Ngày:** 05/10/2026
+
+---
 
 ## 1. Chi phí (10 điểm)
 
 Kết quả từ `ket_qua_benchmark_kg.txt`:
 
 ```text
+Chat model: openai:gpt-4o-mini | Embedding: openai:text-embedding-3-small
+top_k=3 | chunk_size=800 | chunks=176 | KG: 206 nodes / 384 rels
+
 == Indexing (one-off)
 pipeline  calls    in_tok  out_tok       USD  seconds
-flat        176     56072        0   0.00112     62.9
-graph       196     91958     4876   0.00943    120.7
+flat        176     56072        0   0.00112     81.7
+graph       196     91958     4832   0.00940    149.1
 
 == Querying (mean per question)
 pipeline  recall  judge   in_tok  out_tok       USD  seconds
 flat        0.43   1.00      694       47   0.00013     1.43
-graph       0.83   1.50     3947       77   0.00063     2.14
+graph       0.89   1.67     3902       75   0.00062     2.05
 ```
 
 | Chỉ số | Flat | Graph | Graph / Flat |
